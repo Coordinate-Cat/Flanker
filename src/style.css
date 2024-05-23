@@ -1,3 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  overflow: hidden;
+  background: #111111;
+  box-shadow: none;
+  color: #ededed;
+  border-radius: 10px;
+  border: solid 0.2px #333333;
+}
+
+/* ------------------------- title bar style ------------------------- */
+.titlebar {
+  height: 24px;
+  border-radius: 10px 10px 0 0;
+  background: transparent;
+  color: transparent;
+  box-shadow: none;
+  user-select: none;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  gap: 8px;
+  padding: 0 8px;
+  margin-top: 8px;
+  width: fit-content;
+}
+
+/* ------------------------- title bar buttons style ------------------------- */
+.titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  width: 12px;
+  height: 12px;
+  padding: 2px;
+}
+.titlebar:hover {
+  color: #171717;
+}
+
+#titlebar-close {
+  background: #ff605c;
+}
+
+#titlebar-minimize {
+  background: #ffbd44;
+}
+
+#titlebar-maximize {
+  background: #00ca4e;
+}
+
+/* ------------------------- sidemenu resizer style ------------------------- */
+#SideMenu > div > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#SideMenu > div > div:nth-child(3) > div {
+  width: 6px !important;
+  border-radius: 100px;
+  background-color: #d95e00;
+  margin-right: 2px;
+  border: 2px solid #262626;
+}
+
+.gradient-background {
+  animation: gradient-animation 15s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    /* background-position: 0% 50%; */
+    background: #111111;
+  }
+  50% {
+    /* background-position: 100% 50%; */
+    background: #cbcbcb;
+  }
+  100% {
+    /* background-position: 0% 50%; */
+    background: #111111;
+  }
+}
+
+/* ------------------------- sidemenu style ------------------------- */
+.scrollbar {
+  /* IE, Edge */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+  /* Chrome, Safari */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* tooltip */
+.react-tooltip-arrow {
+  display: none;
+}

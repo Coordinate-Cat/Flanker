@@ -8,7 +8,82 @@
   </head>
 
   <body>
+    <div id="app" class="titlebar">
+      <div class="titlebar-button" id="titlebar-close">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="10"
+          height="10"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+      <div class="titlebar-button" id="titlebar-minimize">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="10"
+          height="10"
+        >
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+        </svg>
+      </div>
+      <div class="titlebar-button" id="titlebar-maximize">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          width="10"
+          height="10"
+        >
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      function changeBackgroundColor(color) {
+        document.getElementById("titlebar-close").style.backgroundColor = color;
+        document.getElementById("titlebar-minimize").style.backgroundColor =
+          color;
+        document.getElementById("titlebar-maximize").style.backgroundColor =
+          color;
+      }
+
+      // ウィンドウがフォーカスされていない時
+      window.addEventListener("blur", function () {
+        changeBackgroundColor("#393C3C");
+      });
+
+      // ウィンドウがフォーカスされている時
+      window.addEventListener("focus", function () {
+        document.getElementById("titlebar-close").style.backgroundColor =
+          "#ff605c";
+        document.getElementById("titlebar-minimize").style.backgroundColor =
+          "#ffbd2e";
+        document.getElementById("titlebar-maximize").style.backgroundColor =
+          "#28ca42";
+      });
+    </script>
   </body>
 </html>
