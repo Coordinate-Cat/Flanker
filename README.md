@@ -1,7 +1,22 @@
-# Tauri + React + Typescript
+# watchpoint-gui
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+## develop
 
-## Recommended IDE Setup
+```
+npm run tauri dev
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+### dependencies
+
+- [tauri](https://tauri.studio/)
+- [react](https://reactjs.org/)
+- [typescript](https://www.typescriptlang.org/)
+- [tailwindcss](https://tailwindcss.com/)
+- [vite](https://vitejs.dev/)
+- [re-resizable](https://github.com/bokuweb/re-resizable)
+
+<a href="https://github.com/Coordinate-Cat/watchpoint-gui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Coordinate-Cat/watchpoint-gui" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
