@@ -1,5 +1,7 @@
 # watchpoint-gui
 
+![Alt](https://repobeats.axiom.co/api/embed/e1529c45790b3693365da616a50f7f92a8e12746.svg "Repobeats analytics image")
+
 ## develop
 
 ```
