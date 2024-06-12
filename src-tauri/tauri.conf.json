@@ -6,22 +6,51 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "watchpoint-gui",
+    "productName": "Flanker",
     "version": "0.0.0"
   },
   "tauri": {
+    "macOSPrivateApi": true,
     "allowlist": {
       "all": false,
+      "os": {
+        "all": true
+      },
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true,
+        "setAlwaysOnTop": true
+      },
+      "clipboard": {
+        "all": true,
+        "writeText": true,
+        "readText": true
       }
     },
     "windows": [
       {
-        "title": "watchpoint-gui",
+        "decorations": false,
+        "transparent": true,
+        "title": "Flanker",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "minWidth": 200,
+        "minHeight": 100,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "resizable": true,
+        "fullscreen": true
       }
     ],
     "security": {
