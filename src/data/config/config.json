@@ -1,0 +1,10 @@
+{
+  "storeStateType": {
+    "sideMenuView": true,
+    "contentBodyView": true,
+    "titlebarView": false,
+    "alwaysOnTopView": false,
+    "isPrivacyMode": false,
+    "fullContentBodyView": false
+  }
+}
