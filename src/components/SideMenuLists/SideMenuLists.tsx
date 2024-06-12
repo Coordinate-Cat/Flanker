@@ -1,6 +1,7 @@
 // const/Category.tsからCategoryを取得し、サイドメニューのリストを作成する
-import { Category } from "../../shared/const/Category";
 import { Tooltip } from "react-tooltip";
+
+import { Category } from "../../shared/const/Category";
 import { useStore } from "../../shared/store/store";
 
 type Place = "right";
@@ -16,8 +17,8 @@ export const SideMenuLists = () => {
           data-tooltip-html={category}
           data-tooltip-id="my-tooltip-data-html tooltip-anchor-show"
           data-tooltip-delay-show={1000}
-          className={`cursor-pointer rounded-sm px-0.5 text-[8px] hover:text-[#d95e00] ${
-            currentPage === category ? "bg-[#111] text-[#d95e00]" : ""
+          className={`cursor-pointer rounded-sm px-0.5 text-[10px] hover:text-[#d95e00] ${
+            currentPage === category ? "bg-[#484848]" : ""
           }`}
         >
           <button

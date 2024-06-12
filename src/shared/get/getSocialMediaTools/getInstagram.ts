@@ -1,8 +1,8 @@
-import Instagram from "../../../data/SocialMediaTools/Instagram.json"
+import Instagram from "../../../data/SocialMediaTools/Instagram.json";
 
 export const getInstagram = () => {
   const hostnames = {
-    ...Instagram
-  }
-  return hostnames
-}
+    ...Instagram,
+  };
+  return hostnames;
+};

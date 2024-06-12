@@ -3,7 +3,7 @@ import { useEffect } from "react";
 // titlebarの表示非表示(display:noneの切り替え)
 const useToggleDisplay = (
   titlebarView: boolean,
-  setTitlebarView: (titlebarView: boolean) => void,
+  setTitlebarView: (titlebarView: boolean) => void
 ) => {
   useEffect(() => {
     const header = document.getElementById("Header");

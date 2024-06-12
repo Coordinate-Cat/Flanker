@@ -2,14 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
+html {
+  border-radius: 8px;
   overflow: hidden;
-  background: #111111;
+  box-sizing: border-box;
   box-shadow: none;
-  color: #ededed;
-  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: #111111;
+}
+body {
+  color: #ebdcb2;
+  background: #111111;
   border: solid 0.2px #333333;
+  border-radius: 8px;
 }
 
 /* ------------------------- title bar style ------------------------- */
@@ -26,8 +33,9 @@ body {
   position: fixed;
   gap: 8px;
   padding: 0 8px;
-  margin-top: 8px;
+  margin-top: 12px;
   width: fit-content;
+  z-index: 9999;
 }
 
 /* ------------------------- title bar buttons style ------------------------- */
@@ -39,9 +47,10 @@ body {
   width: 12px;
   height: 12px;
   padding: 2px;
+  cursor: pointer;
 }
 .titlebar:hover {
-  color: #171717;
+  color: #4a4a4a;
 }
 
 #titlebar-close {
@@ -53,7 +62,9 @@ body {
 }
 
 #titlebar-maximize {
+  padding: 1px;
   background: #00ca4e;
+  rotate: 90deg;
 }
 
 /* ------------------------- sidemenu resizer style ------------------------- */
@@ -67,7 +78,7 @@ body {
   width: 6px !important;
   border-radius: 100px;
   background-color: #d95e00;
-  margin-right: 2px;
+  margin-right: 3.5px;
   border: 2px solid #262626;
 }
 

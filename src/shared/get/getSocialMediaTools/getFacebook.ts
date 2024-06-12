@@ -1,8 +1,8 @@
-import Facebook from "../../../data/SocialMediaTools/Facebook.json"
+import Facebook from "../../../data/SocialMediaTools/Facebook.json";
 
 export const getFacebook = () => {
   const hostnames = {
-    ...Facebook
-  }
-  return hostnames
-}
+    ...Facebook,
+  };
+  return hostnames;
+};

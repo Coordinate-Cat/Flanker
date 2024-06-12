@@ -1,9 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { appWindow } from "@tauri-apps/api/window";
+import * as React from "react";
+import { createRoot } from "react-dom/client";
+
 import App from "./App";
+
 import "./style.css";
 
-import { appWindow } from "@tauri-apps/api/window";
 const minimizeButton = document.getElementById("titlebar-minimize");
 if (minimizeButton) {
   minimizeButton.addEventListener("click", () => appWindow.minimize());
@@ -19,7 +21,7 @@ if (closeButton) {
   closeButton.addEventListener("click", () => appWindow.close());
 }
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

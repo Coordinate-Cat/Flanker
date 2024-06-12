@@ -1,18 +1,22 @@
 import { alwaysOnTop } from "../../shared/utils/alwaysOnTop";
 import { ReloadButton } from "../Buttons/ReloadButton/ReloadButton";
+import { SettingButton } from "../Buttons/SettingButton/SettingButton";
 import { SideMenuBarButton } from "../Buttons/SideMenuBarButton/SideMenuBarButton";
 import { TitleBarButton } from "../Buttons/TitleBarButton/TitleBarButton";
+// import { TrafficLightButton } from "../Buttons/TrafficLightButton/TrafficLightButton";
 
 type HeaderProps = {
   // setSideMenuWidth: (value: number) => void;
   sideMenuView: boolean;
-  setSideMenuView: any;
+  setSideMenuView: (value: boolean) => void;
   titlebarView: boolean;
-  setTitlebarView: any;
+  setTitlebarView: (value: boolean) => void;
   alwaysOnTopView: boolean;
-  setAlwaysOnTopView: any;
+  setAlwaysOnTopView: (value: boolean) => void;
   isPrivacyMode: boolean;
-  setIsPrivacyMode: any;
+  setIsPrivacyMode: (value: boolean) => void;
+  isOpenSetting: boolean;
+  setIsOpenSetting: (value: boolean) => void;
 };
 
 export const Header = ({
@@ -25,15 +29,18 @@ export const Header = ({
   setAlwaysOnTopView,
   isPrivacyMode,
   setIsPrivacyMode,
+  isOpenSetting,
+  setIsOpenSetting,
 }: HeaderProps) => {
   return (
     <header
       id="Header"
       data-tauri-drag-region
-      className="mr-1 mt-0.5 flex h-6 items-center justify-between pl-20"
+      className="z-50 mr-1 mt-0.5 flex h-6 items-center justify-between"
     >
+      {/* <TrafficLightButton /> */}
       {/* --------------- left side --------------- */}
-      <div className="flex">
+      <div className="flex pl-20">
         {/* sidemenu button */}
         {!isPrivacyMode ? (
           <SideMenuBarButton
@@ -90,6 +97,11 @@ export const Header = ({
             </svg>
           )}
         </button>
+        {/* setting button */}
+        <SettingButton
+          isOpenSetting={isOpenSetting}
+          setIsOpenSetting={setIsOpenSetting}
+        />
         {/* reload button */}
         <ReloadButton />
         {/* always on top button */}

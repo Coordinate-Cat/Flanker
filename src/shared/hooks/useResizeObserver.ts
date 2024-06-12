@@ -6,7 +6,7 @@ const useResizeObserver = (setSideMenuWidth: (width: number) => void) => {
     const sidemenu = document.getElementById("SideMenu");
     if (sidemenu) {
       const observer = new ResizeObserver((entries) => {
-        for (let entry of entries) {
+        for (const entry of entries) {
           setSideMenuWidth(entry.contentRect.width);
         }
       });

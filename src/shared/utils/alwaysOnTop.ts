@@ -3,7 +3,7 @@ import { appWindow } from "@tauri-apps/api/window";
 // alwaysOnTop enable or disable
 export const alwaysOnTop = async (
   alwaysOnTopView: boolean,
-  setAlwaysOnTopView: (value: boolean) => void,
+  setAlwaysOnTopView: (value: boolean) => void
 ) => {
   if (alwaysOnTopView) {
     await appWindow.setAlwaysOnTop(false);

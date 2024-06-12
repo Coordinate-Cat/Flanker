@@ -1,8 +1,8 @@
-import MainNationalSearchEngines from "../../data/Main_National_Search_Engines.json"
+import MainNationalSearchEngines from "../../data/Main_National_Search_Engines.json";
 
 export const getMainNationalSearchEngines = () => {
   const hostnames = {
-    ...MainNationalSearchEngines
-  }
-  return hostnames
-}
+    ...MainNationalSearchEngines,
+  };
+  return hostnames;
+};

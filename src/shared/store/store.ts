@@ -19,6 +19,8 @@ interface StoreState {
   setFullContentBodyView: (value: boolean) => void;
   currentPage: string;
   setCurrentPage: (value: string) => void;
+  isOpenSetting: boolean;
+  setIsOpenSetting: (value: boolean) => void;
 }
 
 // Q. Why the currying?
@@ -58,6 +60,10 @@ export const useStore = create<StoreState>()(
       // current page
       currentPage: "All",
       setCurrentPage: (value: string) => set({ currentPage: value }),
+
+      // setting modal
+      isOpenSetting: false,
+      setIsOpenSetting: (value: boolean) => set({ isOpenSetting: value }),
     }),
     {
       name: "layout-settings", // localStorage key
@@ -67,13 +73,15 @@ export const useStore = create<StoreState>()(
           return item ? JSON.parse(item) : null; // deserialize
         },
         setItem: (name, value) => {
-          const serializedValue = JSON.stringify(value); // serialize
-          localStorage.setItem(name, serializedValue);
+          // alwaysOnTopViewはlocalStorageに保存しない
+          if (name !== "alwaysOnTopView") {
+            localStorage.setItem(name, JSON.stringify(value)); // serialize
+          }
         },
         removeItem: (name) => {
           localStorage.removeItem(name); // remove
         },
       },
-    },
-  ),
+    }
+  )
 );

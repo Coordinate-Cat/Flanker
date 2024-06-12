@@ -23,8 +23,8 @@ import Main_National_Search_Engines from "../../data/Main_National_Search_Engine
 import Major_Social_Networks from "../../data/Major_Social_Networks.json";
 import Maritime from "../../data/Maritime.json";
 import Meta_Search from "../../data/Meta_Search.json";
-import News_Digest_and_Discovery_Tools from "../../data/News_Digest_and_Discovery_Tools.json";
 import News from "../../data/News.json";
+import News_Digest_and_Discovery_Tools from "../../data/News_Digest_and_Discovery_Tools.json";
 import Offline_Browsing from "../../data/Offline_Browsing.json";
 import OSINT_Blogs from "../../data/OSINT_Blogs.json";
 import OSINT_Videos from "../../data/OSINT_Videos.json";
