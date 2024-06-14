@@ -21,6 +21,8 @@ interface StoreState {
   setCurrentPage: (value: string) => void;
   isOpenSetting: boolean;
   setIsOpenSetting: (value: boolean) => void;
+  savedImagePath: string | null;
+  setSavedImagePath: (value: string | null) => void;
 }
 
 // Q. Why the currying?
@@ -64,6 +66,11 @@ export const useStore = create<StoreState>()(
       // setting modal
       isOpenSetting: false,
       setIsOpenSetting: (value: boolean) => set({ isOpenSetting: value }),
+
+      // saved image path
+      savedImagePath: null,
+      setSavedImagePath: (value: string | null) =>
+        set({ savedImagePath: value }),
     }),
     {
       name: "layout-settings", // localStorage key
