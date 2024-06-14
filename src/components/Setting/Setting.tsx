@@ -1,5 +1,7 @@
 import { invoke } from "@tauri-apps/api/tauri";
 import { useState, useEffect } from "react";
+
+import { ImageUploader } from "../ImageUploader/ImageUploader";
 interface SystemInfo {
   cpu: string;
   mem: string;
@@ -22,13 +24,16 @@ const displaySystemInfo = async (
   try {
     const systemInfo = await invoke<string>("get_system_info");
     setSystemInfo(JSON.parse(systemInfo));
-    console.log("systemInfo", JSON.parse(systemInfo));
   } catch (e) {
     console.error("Error fetching system info:", e);
   }
 };
 
-export const Setting = () => {
+export const Setting = ({
+  setImageSrc,
+}: {
+  setImageSrc: (src: string | null) => void;
+}) => {
   const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
   // toggle
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
@@ -41,27 +46,6 @@ export const Setting = () => {
   const toggleBackgroundImage = () => {
     setIsBackgroundImage(!isBackgroundImage);
   };
-
-  // id: "Setting";の幅をResizeObserverで取得し、200px未満の場合はtrueにする
-  // const [isSettingWidthLessThan220, setIsSettingWidthLessThan220] =
-  //   useState(false);
-
-  // useEffect(() => {
-  //   const setting = document.getElementById("Setting");
-  //   if (setting) {
-  //     const observer = new ResizeObserver((entries) => {
-  //       for (const entry of entries) {
-  //         if (entry.contentRect.width < 320) {
-  //           setIsSettingWidthLessThan220(true);
-  //         } else {
-  //           setIsSettingWidthLessThan220(false);
-  //         }
-  //       }
-  //     });
-  //     observer.observe(setting);
-  //     return () => observer.disconnect();
-  //   }
-  // }, []);
 
   useEffect(() => {
     displaySystemInfo(setSystemInfo);
@@ -172,6 +156,18 @@ export const Setting = () => {
             <button className="h-[14px] w-20 cursor-pointer rounded border border-[#EBDCB2] bg-[#d92800] px-1 text-[10px] leading-tight duration-300 hover:bg-[#EBDCB2] hover:text-[#d92800]">
               Default
             </button>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset className="my-1 w-full rounded border border-[#EBDCB2] px-1 pb-1">
+        <legend className="px-1 text-xs">Background Image</legend>
+        <div>
+          <div className="flex items-center justify-between px-1">
+            <div className="cursor-default select-none text-[10px]">
+              Upload Image
+            </div>
+            <ImageUploader setImageSrc={setImageSrc} />
           </div>
         </div>
       </fieldset>

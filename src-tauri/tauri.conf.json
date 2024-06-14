@@ -13,6 +13,16 @@
     "macOSPrivateApi": true,
     "allowlist": {
       "all": false,
+      "fs": {
+        "all": true,
+        "scope": [
+          "$HOME/.config/flanker/images",
+          "$HOME/.config/flanker/images/*"
+        ]
+      },
+      "path": {
+        "all": true
+      },
       "os": {
         "all": true
       },
@@ -50,7 +60,8 @@
         "hiddenTitle": true,
         "titleBarStyle": "Overlay",
         "resizable": true,
-        "fullscreen": true
+        "fullscreen": true,
+        "fileDropEnabled": true
       }
     ],
     "security": {
