@@ -10,6 +10,7 @@ import { Setting } from "./components/Setting/Setting";
 import { SideMenuLists } from "./components/SideMenuLists/SideMenuLists";
 import useResizeObserver from "./shared/hooks/useResizeObserver";
 import { useStore } from "./shared/store/store";
+import { loadImageBase64 } from "./shared/utils/backgroundUtils";
 
 function App() {
   // store
@@ -31,7 +32,20 @@ function App() {
     isOpenSetting,
     setIsOpenSetting,
   } = useStore();
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const savedImagePath = useStore((state) => state.savedImagePath);
 
+  useEffect(() => {
+    const loadImage = async () => {
+      if (savedImagePath) {
+        const base64 = await loadImageBase64(savedImagePath);
+        if (base64) {
+          setImageSrc(base64);
+        }
+      }
+    };
+    loadImage();
+  }, [savedImagePath]);
   // hooks
   useResizeObserver(setSideMenuWidth);
   // useToggleDisplay(titlebarView, setTitlebarView);
@@ -60,11 +74,13 @@ function App() {
   // getLocalStorageSize();
   return (
     <div className="relative">
-      <img
-        src="./src/assets/platform.jpg"
-        alt="platform"
-        className="absolute inset-0 -top-[1px] left-[1px] z-10 h-[calc(100vh-4px)] w-[calc(100%-2px)] rounded-[6px] object-cover"
-      />
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt="UploadedImage"
+          className="absolute inset-0 -top-[1px] left-[1px] z-10 h-[calc(100vh-4px)] w-[calc(100%-2px)] rounded-[6px] object-cover"
+        />
+      )}
       <div data-tauri-drag-region className="relative z-30">
         {!titlebarView && (
           <Header
@@ -119,7 +135,7 @@ function App() {
                 <div
                   id="SideMenuLists"
                   data-tauri-drag-region
-                  className={`z-40 mr-[3px] select-none overflow-y-auto rounded-md bg-neutral-800 p-1 text-xs 
+                  className={`z-40 mr-[3px] select-none overflow-y-auto rounded-md p-1 text-xs backdrop-blur-[3px] 
                     ${titlebarView ? "h-[calc(100vh-10px)]" : "h-[calc(100vh-36px)]"}
                     ${fullContentBodyView ? "" : "bg-transparent"}
                   `}
@@ -143,7 +159,7 @@ function App() {
           <div
             id="ContentBody"
             data-tauri-drag-region
-            className={`scrollbar flex flex-1 overflow-y-scroll rounded-md bg-neutral-800 p-1 text-xs 
+            className={`scrollbar flex flex-1 overflow-y-scroll rounded-md p-1 text-xs backdrop-blur-[3px] 
             ${titlebarView ? "h-[calc(100vh-10px)]" : "h-[calc(100vh-36px)]"} 
             ${fullContentBodyView ? "w-[calc(100%-40px)]" : "fixed w-[calc(100%-12px)]"} 
             ${isPrivacyMode ? "gradient-background fixed left-[50%] right-[50%] ml-0 w-[calc(100vw-10px)] -translate-x-1/2" : "w-[calc(100vw-10px)]"} 
@@ -156,7 +172,7 @@ function App() {
             {isPrivacyMode && <PrivacyMode />}
             {!isContentBodyWidthLessThan200 &&
               isOpenSetting &&
-              !isPrivacyMode && <Setting />}
+              !isPrivacyMode && <Setting setImageSrc={setImageSrc} />}
             {isContentBodyWidthLessThan200 && (
               <div
                 // ど真ん中に表示
