@@ -1,13 +1,20 @@
 # Flanker
 
+New Age File Explorer
+
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/Coordinate-Cat/Flanker?color=%233ED751)
+![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3ACoordinate-Cat%2FFlanker%20is%3Aclosed&label=closed&color=%239D77D1)
+![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3ACoordinate-Cat%2FFlanker%20is%3Aopen%20label%3Abug&label=bugs&color=%23AF737C)
+
+<!-- アコーディオン -->
+<details>
+<summary>Project Stats</summary>
+
 ![Alt](https://repobeats.axiom.co/api/embed/42a25ba8b65843eba3c9852c3be27de59967a4a0.svg "Repobeats analytics image")
 
+</details>
+
 ## develop
-
-### issues
-
-[ALL](https://github.com/Coordinate-Cat/Flanker/issues)
-[bugs](https://github.com/Coordinate-Cat/Flanker/labels/bug)
 
 ### commands
 
